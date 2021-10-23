@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CRT/crt_material.tres" type="Material" id=1]
+[ext_resource path="res://Images/TV.png" type="Texture" id=2]
+
+[node name="CRT" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TV" type="Sprite" parent="ColorRect"]
+position = Vector2( -23.0173, -23.0173 )
+scale = Vector2( 1.42915, 1.43377 )
+texture = ExtResource( 2 )
+centered = false
