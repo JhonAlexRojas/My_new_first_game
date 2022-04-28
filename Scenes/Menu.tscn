@@ -19,6 +19,8 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Menu" type="CanvasLayer"]
@@ -78,9 +80,6 @@ margin_top = -24.0
 margin_right = -11.0
 margin_bottom = -10.0
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CRTButton" type="Button" parent="ButtomCRTContainer"]
 margin_right = 36.0

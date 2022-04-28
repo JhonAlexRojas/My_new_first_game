@@ -4,7 +4,7 @@ extends Node2D
 signal game_over
 
 
-const GRAVITY = 0.2
+const GRAVITY = 0.2 * 60.0
 var dy = 0.0 # Displacement in the Y axis
 var game_over = false
 
@@ -18,20 +18,23 @@ func _process(_delta):
 	
 	# Update Player
 	if not game_over:
-		move_player()
 		check_hit()
+		move_player()
+
+
+func _physics_process(delta):
+	dy += GRAVITY
+	
+	# Move to new position
+	if not game_over:
+		position.y += dy * delta
 
 
 func move_player():
-	dy += GRAVITY
-
 	# Jump
 	if Input.is_action_just_pressed("ui_accept"):
-		dy -= 5
+		dy -= 5.0 * 60.0
 		$AudioStreamPlayer.play()
-
-	# Move to new position
-	position.y += dy
 
 
 func draw_player():
