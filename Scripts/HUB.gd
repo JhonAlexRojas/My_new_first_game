@@ -17,7 +17,7 @@ func _process(_delta):
 			get_tree().call_deferred("reload_current_scene")
 		elif Input.is_action_just_pressed("ui_exit"):
 			get_tree().call_deferred("change_scene", "res://Scenes/Menu.tscn")
-	else:
+	elif not Global.stop:
 		get_node("ScoreContainer/Score").text = str(score)
 		score += speed
 

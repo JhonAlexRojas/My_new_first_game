@@ -1,6 +1,7 @@
 extends Node2D
 
 
+var column_size = 2
 var speed = 1
 var game_over = false
 onready var cave = [{"top": 3, "btm": 124}] # Make Cave
@@ -22,10 +23,10 @@ func update_cave():
 			cave.remove(0)
 	
 	# Add more cave
-	while len(cave) <= width / 2:
+	while len(cave) <= width / column_size:
 		var col = {}
-		var up = floor(rand_range(-3, 4))
-		var down = floor(rand_range(-3, 4))
+		var up = rand_range(-1, 1) * 3
+		var down = rand_range(-1, 1) * 3
 		col["top"] = clamp(cave[-1]["top"] + up, 3, TOP)
 		col["btm"] = clamp(cave[-1]["btm"] + down, BTM, 124)
 		cave.append(col)
@@ -33,8 +34,8 @@ func update_cave():
 
 func _draw(): # Draw in CanvaItem
 	for i in range(len(cave)):
-		draw_line(Vector2(i * 2, 0), Vector2(i * 2, cave[i]["top"]), Color.gray, 2)
-		draw_line(Vector2(i * 2, 129), Vector2(i * 2, cave[i]["btm"]), Color.gray, 2)
+		draw_line(Vector2(i * column_size, 0), Vector2(i * column_size, cave[i]["top"]), Color.gray, 2)
+		draw_line(Vector2(i * column_size, 129), Vector2(i * column_size, cave[i]["btm"]), Color.gray, 2)
 
 
 func _on_Player_game_over():
