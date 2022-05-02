@@ -4,7 +4,6 @@ extends CanvasLayer
 func _ready():
 	get_node("CRT/ColorRect").visible = Global.crt_mode
 	yield(get_tree().create_timer(0.5), "timeout")
-	$AudioStreamPlayer.play()
 
 
 func _process(_delta):

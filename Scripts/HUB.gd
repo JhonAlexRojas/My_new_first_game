@@ -24,9 +24,8 @@ func _process(_delta):
 
 func _on_Player_game_over():
 	game_over = true
-	get_node("GameOverAudio").play()
+	$GameOverAudio.play()
 	
 	# Hide the Score and show the Game Over screen
 	get_node("GameOverContainer").visible = true
-	get_node("ScoreContainer").visible = false
-	get_node("GameOverContainer/HBoxContainer/Score").text = str(score)
+	#get_node("GameOverContainer/HBoxContainer/Score").text = str(score)
